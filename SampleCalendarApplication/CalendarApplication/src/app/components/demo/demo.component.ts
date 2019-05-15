@@ -40,6 +40,7 @@ export class DemoComponent implements OnInit {
     action: string;
     event: CalendarEvent;
   };
+  modaltext: string;
 
   actions: CalendarEventAction[] = [
     {
@@ -72,31 +73,31 @@ export class DemoComponent implements OnInit {
         afterEnd: true
       },
       draggable: true
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
+    //},
+    //{
+    //  start: startOfDay(new Date()),
+    //  title: 'An event with no end date',
+    //  color: colors.yellow,
+    //  actions: this.actions
+    //},
+    //{
+    //  start: subDays(endOfMonth(new Date()), 3),
+    //  end: addDays(endOfMonth(new Date()), 3),
+    //  title: 'A long event that spans 2 months',
+    //  color: colors.blue,
+    //  allDay: true
+    //},
+    //{
+    //  start: addHours(startOfDay(new Date()), 2),
+    //  end: new Date(),
+    //  title: 'A draggable and resizable event',
+    //  color: colors.yellow,
+    //  actions: this.actions,
+    //  resizable: {
+    //    beforeStart: true,
+    //    afterEnd: true
+    //  },
+    //  draggable: true
     }
   ];
 
@@ -137,6 +138,7 @@ export class DemoComponent implements OnInit {
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
+    this.modaltext = event.title;
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
   }

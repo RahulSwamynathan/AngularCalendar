@@ -1,0 +1,26 @@
+<style>
+  /*#fileT {
+    overflow: hidden;
+    position: relative;
+    width: 75px;
+    height: 50px;
+  }
+
+    #fileT input {
+      position: absolute;
+      opacity: 0.5;
+    }*/
+</style>
+
+<h1>File Upload </h1>
+<div id="fileT">
+  <input #file type="file" multiple (change)="upload(file.files)" />
+ </div>
+  <br />
+  <span style="font-weight:bold;color:green;" *ngIf="progress > 0 && progress < 100">
+    {{progress}}%
+  </span>
+
+  <span style="font-weight:bold;color:green;" *ngIf="message">
+    {{message}}
+  </span>
